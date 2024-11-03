@@ -1,0 +1,4 @@
+Parkinson's disease prediction
+
+Algorithm / Model: XGBClassifier
+Accuracy: 0.9487
