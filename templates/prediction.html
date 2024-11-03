@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parkinson's Disease Prediction</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/asset/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome CSS -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Animate CSS -->
+    <link href="../static/css/animate.css" rel="stylesheet" />
+
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../static/css/owl.carousel.css" />
+    <link rel="stylesheet" href="../static/css/owl.theme.css" />
+    <link rel="stylesheet" href="../static/css/owl.transitions.css" />
+
+    <!-- Custom CSS -->
+    <link href="../static/css/styles.css" rel="stylesheet" />
+    <link href="../static/css/responsive.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Kaushan+Script"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Modernizer js -->
+    <script src="../static/js/modernizr.custom.js"></script>
+
+    <!-- Colors CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/green.css"
+    />
+
+    <!-- Colors CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/green.css"
+      title="green"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/light-red.css"
+      title="light-red"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/blue.css"
+      title="blue"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/light-blue.css"
+      title="light-blue"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/yellow.css"
+      title="yellow"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/color/light-green.css"
+      title="light-green"
+    />
+
+    <style>
+      tbody{
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a
+            class="navbar-brand page-scroll"
+            href="#page-top"
+            style="color: black"
+            >Parkinson's Disease Prediction</a
+          >
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden">
+              <a href="#page-top"></a>
+            </li>
+            <li>
+              <a class="page-scroll" href="{{ url_for('home')}}">Home</a>
+            </li>
+
+            <li>
+              <a class="page-scroll" href="{{ url_for('login')}}">Login</a>
+            </li>
+
+            <li>
+              <a class="page-scroll" href="{{ url_for('upload')}}">Upload</a>
+            </li>
+
+            <li>
+              <a class="page-scroll" href="{{ url_for('preview')}}">Preview</a>
+            </li>
+
+            <li>
+              <a class="page-scroll" href="{{ url_for('prediction')}}"
+                >Prediction</a
+              >
+            </li>
+
+            <li>
+              <a class="page-scroll" href="{{ url_for('performance')}}"
+                >Performance</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Start Home Page Slider -->
+    <section id="page-top">
+      <img src="../static/img/pic2.jpg" width="100%" height="500px"
+    </section>
+    <!-- End Home Page Slider -->
+
+    <br /><br />
+    <center>
+       <section id="speakers">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+           
+           <form action="{{ url_for('predict')}}" method="POST" id="prediction_form" name="prediction_form">
+		<div class="section-title">
+ 
+ 
+        </div>
+            <div class="scrollable">
+			
+               <center>     <table> </center> 
+				<tbody>
+                    
+						<h2>prediction</h2>
+					 
+                        <td>Average vocal fundamental frequency. MDVP:Fo(Hz)</td>
+                        <td>
+                            <input type="text" name="avg_fre" method="post" required="required" placeholder="Average Frequency" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						</br>
+						   <td>Maximum vocal fundamental frequency. MDVP:Fhi(Hz)</td>
+                        <td>
+                            <input type="text" name="max_fre" method="post" required="required" placeholder="Maximum Frequency" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						
+						
+						 </tbody>
+
+                    <!-- Row 1 -->
+                    <tbody>
+                         <td>Minimum vocal fundamental frequency. MDVP:Flo(Hz)</td>
+                        <td>
+                            <input type="text" name="min_fre" method="post" required="required" placeholder="Minimum frequency" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						</br>
+						   <td>MDVP jitter in percentage. MDVP:Jitter(%)</td>
+                        <td>
+                            <input type="text" name="var_fre1" method="post" required="required" placeholder="Jitter in percentage" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						
+                    </tbody>
+					</br>
+                    <!-- Row 2 -->
+                    <tbody>
+                        <td>MDVP absolute jitter in ms. MDVP:Jitter(Abs)</td>
+                        <td>
+                            <input type="text" name="var_fre2" method="post" required="required" placeholder="Jitter in ms" width="300" style="width: 300px">
+                               
+							
+                        </td>
+                        <td>MDVP relative amplitude perturbation. MDVP:RAP</td>
+                        <td>
+                            <input type="text" name="var_fre3" method="post" required="required" placeholder="Relative Amplitude" width="300" style="width: 300px">
+                            
+                        </td>
+                    </tbody>
+					</br>
+                    <!-- Row 3 -->
+                    <tbody>
+                        <td>MDVP five-point period perturbation quotient. MDVP:PPQ</td>
+                        <td>
+                            <input type="text" name="var_fre4" method="post" required="required" placeholder="five-point period perturbation quotient" width="300" style="width: 300px">
+                            
+                        </td>
+                        <td>Average absolute difference between jitter cycles. Jitter:DDP</td>
+                        <td>
+                            <input type="text" name="var_fre5" method="post" required="required" placeholder="Jitter cycles difference" width="300" style="width: 300px">
+            
+                        </td>
+                    </tbody>
+                    <!-- Row 4 --></br>
+                    <tbody>
+                        <td>MDVP local shimmer. MDVP:Shimmer</td>
+                        <td>
+                            <input type="text" name="var_amp1" method="post" required="required" placeholder="local shimmer" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						</br>
+						   <td>MDVP local shimmer in dB. MDVP:Shimmer(dB)</td>
+                        <td>
+                            <input type="text" name="var_amp2" method="post" required="required" placeholder="Local shimmer db" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+                    </tbody>
+                    <!-- Row 5 --></br>
+                    <tbody>
+                        <td>Three-point amplitude perturbation quotient. Shimmer:APQ3</td>
+                        <td>
+                            <input type="text" name="var_amp3" method="post" required="required" placeholder="3-Amplitude" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+						</br>
+						   <td>Five-point amplitude perturbation quotient. Shimmer:APQ5</td>
+                        <td>
+                            <input type="text" name="var_amp4" method="post" required="required" placeholder="5-Amplitude" width="300" style="width: 300px"/>
+                                 
+							    
+						       
+                        </td>
+                    </tbody>
+                       <tbody>
+					   
+					   <td>MDVP 11-point amplitude perturbation quotient. MDVP:APQ</td>
+                        <td>
+                              <input type="text" name="var_amp5" method="post" required="required" placeholder="11-Amplitude" width="300" style="width: 300px"/>
+                        </td>
+                         <td>Average absolute differences between the amplitudes of consecutive periods. Shimmer:DDA</td>
+                        <td>
+                              <input type="text" name="var_amp6" method="post" required="required" placeholder="Amplitude difference" width="300" style="width: 300px">
+                                        </td>
+                         
+                    </tbody>
+                     <tbody>
+                          <td>Noise-to-harmonics ratio. NHR</td>
+                        <td>
+                              <input type="text" name="nhr" method="post" required="required" placeholder="NHR" width="300" style="width: 300px">
+                                 
+                        </td>
+						 <td>Harmonics-to-noise ratio. HNR</td>
+                        <td>
+                              <input type="text" name="hnr" method="post" required="required" placeholder="HNR" width="300" style="width: 300px">
+                                   
+                        </td>
+                    </tbody>
+                <tbody>
+                         <td>Recurrence period density entropy measure. RPDE</td>
+                        <td>
+                              <input type="text" name="rpde" method="post" required="required" placeholder="RPDE" width="300" style="width: 300px">
+                                  
+                        </td>
+						 <td>Signal fractal scaling exponent of detrended fluctuation analysis. DFA</td>
+                        <td>
+                              <input type="text" name="dfa " method="post" required="required" placeholder="DFA " width="300" style="width: 300px">
+                               
+                        </td>
+
+                        
+                        
+
+                    </tbody>
+
+                    <tbody>
+                         <td>Two nonlinear measures of fundamental. Spread1</td>
+                        <td>
+                              <input type="text" name="spread1" method="post" required="required" placeholder="Two nonlinear measures of fundamental" width="300" style="width: 300px">
+                                  
+                        </td>
+						 <td>Frequency variation. Spread2</td>
+                        <td>
+                              <input type="text" name="spread2 " method="post" required="required" placeholder="Frequency variation " width="300" style="width: 300px">
+                               
+                        </td>
+
+                        
+                        
+
+                    </tbody>
+
+                    <tbody>
+                         <td>Correlation dimension. D2</td>
+                        <td>
+                              <input type="text" name="d2" method="post" required="required" placeholder="Correlation dimension" width="300" style="width: 300px">
+                                  
+                        </td>
+						 <td>Pitch period entropy. PPE</td>
+                        <td>
+                              <input type="text" name="ppe " method="post" required="required" placeholder="Pitch period entropy " width="300" style="width: 300px">
+                               
+                        </td>
+
+                        
+                        
+
+                    </tbody>
+
+                   
+
+
+					
+                </table>
+				</br>
+				</br>
+                <div class="center">
+                  <center>  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button> </center> 
+                </div>
+            </div>
+        </form>
+
+        
+
+       
+
+		<h1>Prediction is:{{ prediction_text }}</h1>
+		   
+		   
+		   
+		   
+		   
+        </div>
+
+        
+      </div>
+
+    </section>
+    </center>
+
+    <!-- jQuery Version 2.1.1 -->
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/asset/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../static/js/jquery.easing.1.3.js"></script>
+    <script src="../static/js/classie.js"></script>
+    <script src="../static/js/count-to.js"></script>
+    <script src="../static/js/jquery.appear.js"></script>
+    <script src="../static/js/cbpAnimatedHeader.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/jquery.fitvids.js"></script>
+    <script src="../static/js/styleswitcher.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../static/js/jqBootstrapValidation.js"></script>
+    <script src="../static/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>
